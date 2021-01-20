@@ -86,19 +86,26 @@ body h1{
 	border-radius: 8px;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 .modal h1{
 	color:rgb(59, 59, 59);
 	text-shadow: none;
 	display: block;
+	padding: 0.3em 0;
+}
+
+.modal h4{
+	font-size:30px;
+	margin-top: 40px;
 }
 
 .botao-modal{
 	width:100px;
 	width:250px;
 	display: inline-block;
-	margin: 130px auto;
+	margin: 100px auto;
     height:60px;
     font-size:22px;
     font-weight:bold;

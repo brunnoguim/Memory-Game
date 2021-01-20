@@ -3,6 +3,7 @@ var cartasCheck = []
 var escolhas = []
 var pares = []
 var modalBg = document.querySelector('#modal-bg')
+var pontos = 5000
 
 container.addEventListener("click", selecionar)
 modalBg.addEventListener("click", restart)
@@ -50,6 +51,10 @@ function checkMatch(){
         var criarH1Modal = document.createElement('h1')
         criarModal.appendChild(criarH1Modal)
         criarH1Modal.innerHTML = 'Parabéns!<br>'
+        //Criar o display do score
+        var criarScore = document.createElement('h4')
+        criarModal.appendChild(criarScore)
+        criarScore.innerHTML = `Score: ${pontos}`
         //Criar o botão de play again
         var criarBtnModal = document.createElement('button')
         criarBtnModal.classList.add('botao-modal')
@@ -66,3 +71,10 @@ function restart(e){
         return false
     }
 }
+
+//Função do score
+function score(){
+    pontos-- 
+}
+
+window.setInterval(score, 10)
