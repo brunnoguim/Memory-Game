@@ -5,4 +5,4 @@
 - ⬜️ Replace the window.alerts currently used to output the result of each pair of choices (deu boa/deu ruim)
 - ⬜️ Improve the loading time on the very well designed (and necessary) sound effects
 - ⬜️ Make it responsive
-- ⬜️ Disable clicks on cards already clicked
+- ✅ Disable clicks on cards already clicked
