@@ -1,4 +1,3 @@
-
 # Future Changes (maybe?)
 - Add random generated positions for the cards (although my gf really liked the experience, currently there's not much replayability to this)
 - Add a win screen on the game's completion (with a replay option)
