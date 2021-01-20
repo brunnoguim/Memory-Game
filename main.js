@@ -4,17 +4,19 @@ var escolhas = []
 var pares = []
 var modalBg = document.querySelector('#modal-bg')
 var pontos = 5000
+var escolha = ''
 
 container.addEventListener("click", selecionar)
 modalBg.addEventListener("click", restart)
 
 //Função de selecionar as cartas, virando suas escolhas
 function selecionar(e){
-    var escolha = e.target
+    escolha = e.target
     if(escolha.classList[0] === "cartas"){
         var cartaEscolhida = escolha.parentElement
         escolha.style.opacity = "0"
         escolhas.push(escolha)
+        escolha.classList.remove("cartas")
         cartasCheck.push(cartaEscolhida.classList[0])
         if (cartasCheck.length === 2){
             setTimeout(checkMatch, 100)
@@ -35,6 +37,8 @@ function checkMatch(){
     } else {
         escolhas[0].style.opacity = "1"
         escolhas[1].style.opacity = "1"
+        escolhas[0].classList.add("cartas")
+        escolhas[1].classList.add("cartas")
         ohno.play()
         window.alert("Deu ruim!")
     }
@@ -76,5 +80,4 @@ function restart(e){
 function score(){
     pontos-- 
 }
-
 window.setInterval(score, 10)
