@@ -1,5 +1,3 @@
-# Memory-Game
-Simple memory game that I made to practice js (while also entertaining my gf with it's cards and sound effects)
 
 # Future Changes (maybe?)
 - Add random generated positions for the cards (although my gf really liked the experience, currently there's not much replayability to this)
