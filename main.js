@@ -7,6 +7,7 @@ var modalBg = document.querySelector('#modal-bg')
 container.addEventListener("click", selecionar)
 modalBg.addEventListener("click", restart)
 
+//Função de selecionar as cartas, virando suas escolhas
 function selecionar(e){
     var escolha = e.target
     if(escolha.classList[0] === "cartas"){
@@ -20,6 +21,7 @@ function selecionar(e){
     }
 }
 
+//Função de checar o match das cartas escolhidas (e desvirar elas caso não batam)
 function checkMatch(){
     var latido = new Audio()
     latido.src = "latido.mp3"
@@ -35,16 +37,20 @@ function checkMatch(){
         ohno.play()
         window.alert("Deu ruim!")
     }
+    //Limpando os arrays de seleção das cartas após a 2ª escolha
     cartasCheck = []
     escolhas = []
     if(pares.length == 6){
         modalBg.style.display = 'flex'
+        //Criar o modal
         var criarModal = document.createElement('div')
         criarModal.classList.add('modal')
         modalBg.appendChild(criarModal)
+        //Criar o h1 com a msg de won
         var criarH1Modal = document.createElement('h1')
         criarModal.appendChild(criarH1Modal)
         criarH1Modal.innerHTML = 'Parabéns!<br>'
+        //Criar o botão de play again
         var criarBtnModal = document.createElement('button')
         criarBtnModal.classList.add('botao-modal')
         criarModal.appendChild(criarBtnModal)
@@ -52,6 +58,7 @@ function checkMatch(){
     }
 }
 
+//Função de reload depois de terminar o jogo
 function restart(e){
     var botão = e.target
     if(botão.classList[0] === "botao-modal"){
