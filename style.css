@@ -67,3 +67,46 @@ body h1{
 .imagens6{
 	background-image: url(6.jpeg);
 }
+
+#modal-bg{
+	position:absolute;
+	height: 100%;
+	width: 100%;
+	background-color:rgba(0, 0, 0, 0.7);
+	top:0;
+	display:none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal{
+	width:60%;
+	height:60%;
+	background-color: white;
+	border-radius: 8px;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal h1{
+	color:rgb(59, 59, 59);
+	text-shadow: none;
+	display: block;
+}
+
+.botao-modal{
+	width:100px;
+	width:250px;
+	display: inline-block;
+	margin: 130px auto;
+    height:60px;
+    font-size:22px;
+    font-weight:bold;
+    border:none;
+    background-color: #dd2f4c;
+    color:white;
+    cursor:pointer;
+	font-family: inherit;
+	border-radius: 8px;
+	display: block;
+}

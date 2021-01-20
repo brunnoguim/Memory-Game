@@ -2,8 +2,10 @@ var container = document.querySelector('#container-tabuleiro')
 var cartasCheck = []
 var escolhas = []
 var pares = []
+var modalBg = document.querySelector('#modal-bg')
 
 container.addEventListener("click", selecionar)
+modalBg.addEventListener("click", restart)
 
 function selecionar(e){
     var escolha = e.target
@@ -36,6 +38,24 @@ function checkMatch(){
     cartasCheck = []
     escolhas = []
     if(pares.length == 6){
-        window.alert('PARABÉNS!')
+        modalBg.style.display = 'flex'
+        var criarModal = document.createElement('div')
+        criarModal.classList.add('modal')
+        modalBg.appendChild(criarModal)
+        var criarH1Modal = document.createElement('h1')
+        criarModal.appendChild(criarH1Modal)
+        criarH1Modal.innerHTML = 'Parabéns!<br>'
+        var criarBtnModal = document.createElement('button')
+        criarBtnModal.classList.add('botao-modal')
+        criarModal.appendChild(criarBtnModal)
+        criarBtnModal.innerHTML = 'Jogar Novamente'
+    }
+}
+
+function restart(e){
+    var botão = e.target
+    if(botão.classList[0] === "botao-modal"){
+        location.reload()
+        return false
     }
 }
