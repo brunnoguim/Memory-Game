@@ -5,11 +5,21 @@ var pares = []
 var modalBg = document.querySelector('#modal-bg')
 var pontos = 5000
 var escolha = ''
+var shuffle = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
+var imagens = container.children
 
 container.addEventListener("click", selecionar)
 modalBg.addEventListener("click", restart)
 
-//Função de selecionar as cartas, virando suas escolhas
+//Embaralhar as imagens e montar elas no tabuleiro
+function montar(){
+    shuffle.sort((a,b) => 0.5 - Math.random())
+    for (c = 0; c < shuffle.length; c++){
+        imagens[c].classList.add(`imagens${shuffle[c]}`)
+    }
+}
+
+//Selecionar as cartas, virando as escolhidas
 function selecionar(e){
     escolha = e.target
     if(escolha.classList[0] === "cartas"){
@@ -19,12 +29,12 @@ function selecionar(e){
         escolha.classList.remove("cartas")
         cartasCheck.push(cartaEscolhida.classList[0])
         if (cartasCheck.length === 2){
-            setTimeout(checkMatch, 100)
+            setTimeout(checkMatch, 0)
         }
     }
 }
 
-//Função de checar o match das cartas escolhidas (e desvirar elas caso não batam)
+//Checar o match das cartas escolhidas (e desvirar elas caso não batam)
 function checkMatch(){
     var latido = new Audio()
     latido.src = "latido.mp3"
@@ -42,9 +52,10 @@ function checkMatch(){
         ohno.play()
         window.alert("Deu ruim!")
     }
-    //Limpando os arrays de seleção das cartas após a 2ª escolha
+    //Limpando os arrays de seleção das cartas a cada par de escolha
     cartasCheck = []
     escolhas = []
+    //Victory screen
     if(pares.length == 6){
         modalBg.style.display = 'flex'
         //Criar o modal
@@ -78,6 +89,9 @@ function restart(e){
 
 //Função do score
 function score(){
-    pontos-- 
+    pontos--
+    if(pontos < 0){
+        pontos = 0
+    }
 }
 window.setInterval(score, 10)
